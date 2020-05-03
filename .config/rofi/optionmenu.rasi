@@ -1,0 +1,33 @@
+@import "variables.rasi"
+
+* {
+	background-color: #00000000;
+	font: @font-symbols;
+	text-color: @font-color;
+}
+
+window {
+	children: [ horibox ];
+	fullscreen: true;
+	background-color: @overlay;
+	transparency: "real";
+}
+
+horibox {
+	children: [ listview ];
+}
+
+listview {
+	layout: horizontal;
+}
+
+element {
+	padding: 90px 96px 90px 18px;
+	background-color: @background;
+}
+
+element.selected {
+	background-color: @primary;
+	text-color: @background;
+}
+

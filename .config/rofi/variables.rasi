@@ -1,0 +1,11 @@
+*	{
+		overlay:      		#212121f6;
+    background:   		#383838;
+    background-light:	#666666;
+		primary:      		#33dd56;
+    warning:      		#ff5021;
+    alert:        		#dd3533;
+    font:         		"Roboto 10";
+    font-symbols: 		"Font Awesome 5 Free 42";
+		font-color:				#fff;
+}

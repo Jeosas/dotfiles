@@ -1,0 +1,54 @@
+!! cursor
+Xcursor.theme: Hacked-Green
+
+!! urxvt config
+
+! Appearance
+urxvt.termName: rxvt-unicode
+urxvt.scrollBar: false
+urxvt.internalBorder: 18
+! Font prefferenes
+urxvt.font: xft:Roboto Mono:size=11
+urxvt.boldFont: xft:Roboto Mono:size=11:weight=bold
+urxvt.letterSpace: -1
+! Larger history limit
+urxvt.saveLines: 1000000
+
+! Perl extensions
+urxvt.perl-ext-common: default,matcher
+! Open urls in browser with Control-Click
+urxvt.urlLauncher: /usr/bin/firefox
+urxvt.matcher.button: C1
+
+! -- colors
+! Main
+urxvt.depth: 32
+urxvt.foreground:  #fff
+urxvt.background:  rgba:3800/3800/3800/cc00
+urxvt.cursorColor: #f6f7ec
+! Black
+urxvt.color0:      #121418
+urxvt.color8:      #675f54
+! Red
+urxvt.color1:      #c94234
+urxvt.color9:      #ff645a
+! Green
+urxvt.color2:      #33dd56
+urxvt.color10:     #98e036
+! Yellow
+urxvt.color3:      #f5ae2e
+urxvt.color11:     #e0d561
+! Blue
+urxvt.color4:      #1398b9
+urxvt.color12:     #5fdaff
+! Magenta
+urxvt.color5:      #d0633d
+urxvt.color13:     #ff9269
+! Cyan
+urxvt.color6:      #509552
+urxvt.color14:     #84f088
+! White
+urxvt.color7:      #e5c6aa
+urxvt.color15:     #f6f7ec
+! Bold, Italic, Underline
+urxvt.colorBD:     #f6f7ec

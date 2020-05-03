@@ -1,0 +1,285 @@
+
+
+[colors]
+transparent = #00000000
+background = #383838
+primary = #33dd56
+warning = #ff5C21
+alert = #dd3533
+
+[vars]
+padding-inner = 4
+padding-outer = 4
+
+[bar/topbar]
+override-redirect = true
+wm-restack = i3
+enable-ipc = true
+
+width = 100%:-24
+height = 30
+fixed-center = true
+
+offset-x = 12
+offset-y = 12
+
+background = ${colors.transparent}
+foreground = ${colors.primary}
+
+font-0 = Roboto:style=Regular:size=10;3
+font-1 = Font Awesome 5 Free:style=Solid:size=11;3
+font-2 = Font Awesome 5 Free:style=Regular:size=11;3
+font-3 = fixed:size=10;3
+
+line-size = 2
+line-color = ${colors.primary}
+
+border-size = 0
+border-color = #000
+
+modules-margin = 0
+
+tray-position = right
+tray-background = ${colors.background}
+
+scroll-up = i3wm-wsnext
+scroll-down = i3wm-wsprev
+
+cursor-click = pointer
+cursor-scroll = default
+
+locale = fr_FR.UTF-8
+
+modules-left = power i3
+modules-right = yay temp cpu memory drives light audio network-wifi network-eth battery date
+
+
+
+[module/power]
+type = custom/text
+content = 
+content-background = ${colors.background}
+content-padding = 5
+click-left = ~/.config/rofi/menus/powermenu.sh
+
+
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sorting = true
+wrapping-scroll = false
+
+format-padding = ${vars.padding-outer}
+format-background = ${colors.background}
+
+label-mode-padding-left = 1
+label-mode-foreground = ${colors.primary}
+
+; focused = Active workspace on focused monitor
+label-focused = ●
+label-focused-foreground = ${colors.primary}
+label-focused-underline = ${colors.primary}
+label-focused-padding = 2
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = ○
+label-unfocused-font = 3
+label-unfocused-foreground = ${colors.primary}
+label-unfocused-padding = 2
+
+; urgent = Workspace with urgency hint set
+label-urgent = ●
+label-urgent-foreground = ${colors.warning}
+label-urgent-underline = ${colors.warning}
+label-urgent-padding = 2
+
+background = ${colors.background}
+
+
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = 
+time = %H:%M
+
+date-alt = %e %B %Y
+time-alt = 
+
+label = %date%%time%
+label-padding-left = ${vars.padding-inner}
+label-padding-right = ${vars.padding-outer}
+
+format-background = ${colors.background}
+format-forground = ${colors.primary}
+
+
+
+[module/battery]
+type=internal/battery
+
+full-at = 90
+
+battery = BAT1
+adapter = ADP1
+
+poll-interval = 10
+
+format-charging-background = ${colors.background}
+format-charging-padding = ${vars.padding-inner}
+format-charging =   <label-charging>
+label-charging = %percentage%%
+
+format-discharging-background = ${colors.background}
+format-discharging-padding = ${vars.padding-inner}
+format-discharging = <ramp-capacity>  <label-discharging>
+label-discharging = %percentage%%
+
+format-full-background = ${colors.background}
+format-full-padding = ${vars.padding-inner}
+format-full = 
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+
+
+
+[module/network-eth]
+type = internal/network
+
+interface = enp3s0
+
+interval = 3
+
+format-connected = <label-connected>
+format-connected-background = ${colors.background}
+format-connected-padding = ${vars.padding-inner}
+label-connected =   %upspeed%    %downspeed%  
+
+
+
+[module/network-wifi]
+type = internal/network
+
+interface = wlp2s0
+
+interval = 3
+
+format-connected = <label-connected>
+format-connected-background = ${colors.background}
+format-connected-padding = ${vars.padding-inner}
+label-connected =   %upspeed%    %downspeed%  
+
+
+
+[module/audio]
+type = internal/pulseaudio
+
+sink = 
+
+use-ui-max = false
+
+interval = 5
+
+format-volume = <ramp-volume>  <label-volume>
+format-volume-background = ${colors.background}
+format-volume-padding = ${vars.padding-inner}
+
+format-muted = <label-muted>
+format-muted-background = ${colors.background}
+format-muted-padding = ${vars.padding-inner}
+format-muted-underline = ${colors.warning}
+label-muted =   muted
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+click-right = ncpamixer &
+
+
+
+[module/light]
+type = internal/xbacklight
+
+format = <label>
+format-background = ${colors.background}
+format-padding = ${vars.padding-inner}
+label =   %percentage%%
+
+
+
+[module/drives]
+type = internal/fs
+
+mount-0 = /
+mount-1 = /home
+
+interval = 60
+fixed-values = true
+spacing = 0
+
+format-mounted =   <label-mounted>
+format-mounted-background = ${colors.background}
+format-mounted-padding = ${vars.padding-inner}
+label-mounted = %mountpoint% %percentage_used%%
+
+format-unmounted = 
+
+
+
+[module/memory]
+type = internal/memory
+
+interval = 6
+
+format =   <label>
+format-background = ${colors.background}
+format-padding = ${vars.padding-inner}
+label = %percentage_used%%
+
+
+
+[module/cpu]
+type = internal/cpu
+
+interval = 3
+
+format =   <label>
+format-background = ${colors.background}
+format-padding = ${vars.padding-inner}
+label = %percentage-sum%%
+
+
+
+[module/temp]
+type = custom/script
+
+exec = ~/.config/polybar/scripts/polytemp.sh
+interval = 10
+
+format = <label>
+format-background = ${colors.background}
+format-padding = ${vars.padding-inner}
+label = %output%
+
+
+
+[module/yay]
+type = custom/ipc
+hook-0 = yay -Qu | wc -l
+format-prefix = "  "
+format-background = ${colors.background}
+format-padding = ${vars.padding-inner}
+initial = 1
+
+
+
+#########
+#  END  # 
+#########

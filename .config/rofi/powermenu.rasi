@@ -1,0 +1,10 @@
+@import "optionmenu.rasi"
+
+window {
+	padding: 415px 183px;
+}
+
+listview {
+	spacing: 77px;
+	lines: 5;
+}

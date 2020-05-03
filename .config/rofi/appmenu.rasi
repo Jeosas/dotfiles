@@ -1,0 +1,55 @@
+@import "variables.rasi"
+
+* {
+	font:	@font;
+	text-color:	@font-color;
+	background-color: #00000000;
+}
+
+window {
+	fullscreen: true;
+	padding: 216px 360px;
+	background-color: @overlay;
+	transparency:	"real";
+}
+
+inputbar, prompt, textbox-prompt-colon, entry {
+	background-color: @background;
+}
+
+inputbar {
+	children:	[ prompt, textbox-prompt-colon, entry ];
+	margin: 4px;
+}
+
+prompt {
+	padding: 16px 20px;
+	background-color:	@primary;
+	text-color: @background;
+}
+
+textbox-prompt-colon {
+	expand: false;
+	str: "";
+	padding: 16px;
+}
+
+entry {
+	text-color: @primary;
+	padding: 18px 16px 16px 0;
+}
+
+element {
+	padding: 20px;
+	margin: 4px;
+	border: 0 0 0 8px;
+	background-color: @background;
+	border-color: @background;
+}
+
+element.selected {
+	background-color: @background-light;
+	text-color: @primary;
+	border-color: @primary;
+}
+
